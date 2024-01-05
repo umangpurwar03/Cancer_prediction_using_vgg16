@@ -1,0 +1,9 @@
+/detect
+/ultrasound_data
+/ultrasound_data copy
+/ultrasound_data copy 2
+/best_model_0.h5
+/best_model_2.h5
+/best_model.h5
+/predictions.csv
+/venv
