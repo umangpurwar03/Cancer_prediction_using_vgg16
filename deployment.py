@@ -29,13 +29,13 @@ st.markdown(
     """
     <style>
     .header {
-        color: #33B5FF;
+        color: #FF69B4;
         font-size: 36px;
         text-align: center;
         margin-bottom: 30px;
     }
     .upload-box {
-        border: 2px dashed #33B5FF;
+        border: 2px dashed #FF69B4;
         border-radius: 10px;
         padding: 20px;
         text-align: center;
@@ -44,12 +44,12 @@ st.markdown(
     .classify-button {
         display: block;
         width: 100%;
-        padding: 10px;
-        margin-top: 20px;
+        padding: 2px;
+        margin-top: 2px;
         border: none;
         border-radius: 5px;
         color: white;
-        background-color: #33B5FF;
+        background-color: #FF69B4;
         font-size: 18px;
         cursor: pointer;
     }
@@ -59,19 +59,26 @@ st.markdown(
 )
 
 # Streamlit app code
-st.title('Ultrasound Image Classifier')
-st.markdown("<p class='header'>Upload an ultrasound image</p>", unsafe_allow_html=True)
-
-uploaded_file = st.file_uploader("", type=['png', 'jpg', 'jpeg'], accept_multiple_files=False)
+st.sidebar.title('Breast Cancer Prediction')
+uploaded_file = st.sidebar.file_uploader("Upload an ultrasound image", type=['png', 'jpg', 'jpeg'], accept_multiple_files=False)
 
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
-    st.image(image, caption='Uploaded Image', use_column_width=True, output_format='JPEG')
+    # Desired width and height
+    desired_width = 650
+    desired_height = 400  # Adjust this value to your desired height
+
+    # Calculate aspect ratio
+    aspect_ratio = image.width / image.height
+    new_width = int(aspect_ratio * desired_height)
+    # Resize the image to desired dimensions
+    resized_image = image.resize((new_width, desired_height))
+    st.image(image, caption='Uploaded Image', width=desired_width , use_column_width=False, output_format='JPEG')
 
     # Adding a border around the uploaded image
-    st.markdown("<div class='upload-box'><p>Uploaded Image</p></div>", unsafe_allow_html=True)
+    # st.sidebar.markdown("<div class='upload-box'><p>Uploaded Image</p></div>", unsafe_allow_html=True)
 
-    if st.button('Classify', key='classify_button'):
+    if st.sidebar.button('Classify', key='classify_button'):
         prediction = predict(image)
         predicted_class = np.argmax(prediction)
         
@@ -86,5 +93,5 @@ if uploaded_file is not None:
         predicted_label = class_labels.get(predicted_class)
         confidence = np.max(prediction) * 100
         
-        st.write(f"Predicted Class: {predicted_label}")
-        st.write(f"Confidence: {confidence:.2f}%")
+        st.sidebar.write(f"Predicted Class: {predicted_label}")
+        st.sidebar.write(f"Confidence: {confidence:.2f}%")
