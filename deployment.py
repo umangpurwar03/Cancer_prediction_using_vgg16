@@ -2,6 +2,8 @@ import streamlit as st
 import tensorflow as tf
 from PIL import Image
 import numpy as np
+import cv2
+from ultralytics import YOLO
 
 # Load the saved model
 model = tf.keras.models.load_model('best_model_1.h5')
@@ -95,3 +97,20 @@ if uploaded_file is not None:
         
         st.sidebar.write(f"Predicted Class: {predicted_label}")
         st.sidebar.write(f"Confidence: {confidence:.2f}%")
+        
+        # If malignant tumor is detected
+        if predicted_class == 1:
+            # Load the image
+            image_cv = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
+            # Initialize YOLO model
+            model_main = YOLO(r"best.pt")
+            # Run inference on the loaded image
+            results = model_main(image_cv, save=False, conf=0.2)
+            # Plot the results
+            res_plotted = results[0].plot()
+            # Convert the plotted image to BGR format (OpenCV uses BGR)
+            plotted_bgr = cv2.cvtColor(res_plotted, cv2.COLOR_RGB2BGR)
+            # Replace the original image with the detected image
+            image = Image.fromarray(plotted_bgr)
+            # Display the image
+            st.image(image, caption='Detected Malignant Tumor', width=desired_width, use_column_width=False)
