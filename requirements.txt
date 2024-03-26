@@ -1,5 +1,5 @@
 streamlit
-opencv-python-headless
+opencv-contrib-python-headless
 ultralytics==8.1.34
 tensorflow==2.15.0
 Pillow==8.4.0
