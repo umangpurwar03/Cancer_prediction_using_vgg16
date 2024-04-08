@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breast Cancer Detection Application</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<nav>
+    <a class="active" href="#home">Home</a>
+    <a href="/about">About Breast Cancer</a>
+    <a href="/screening">Screening & Detection</a>
+</nav>
+
+<div id="home" class="content">
+    <div>
+        <h2>Empowering Breast Cancer Detection</h2>
+        <p>Equipping You with Invaluable Knowledge <a href="/about" class="cta-btn">Learn More</a> </p>
+        <p>Our application employs advanced image analysis to precisely classify breast cancer and identify tumor locations with utmost accuracy.</p>
+        <div class="image-container">
+            <img src="../static/breast cancer 2.png" alt="Breast Cancer Ribbon">
+            <img src="../static/breast cancer1.png" alt="Breast Cancer Awareness">
+            <img src="../static/breast cancer 3.png" alt="Breast Cancer Awareness">
+        </div>
+        
+        <h3>Understanding Breast Cancer</h3>
+        <div class="long-paragraphs">
+            <p>Breast cancer originates from abnormal growth of breast cells, typically starting in the milk ducts or lobules that produce milk.</p>
+            <p> While predominantly affecting women, breast cancer can also manifest in men. Timely detection and appropriate intervention are pivotal in enhancing breast cancer prognosis.</p>
+            <p>Regular screenings and self-examinations are indispensable for identifying breast cancer in its nascent stages when treatment is most efficacious. A confluence of factors such as genetic predisposition, age, and lifestyle choices can impact breast cancer susceptibility.</p>
+            <p>It is imperative to foster awareness regarding breast cancer and propagate education concerning preventative measures and early detection techniques.</p>
+        </div>
+        <div class="long-paragraphs">
+            <img src="../static/banner.png" alt="Banner Image" class="banner-image">
+        </div>
+        <div class="long-paragraphs">
+            <h3>Importance of Early Detection</h3>
+            <p>Early detection of breast cancer significantly improves the chances of successful treatment and long-term survival. Here's why:</p>
+            <ul>
+                <li><strong>Higher Cure Rates:</strong> When breast cancer is detected early, before it spreads to other parts of the body, treatment is often more effective, leading to higher cure rates.</li>
+                <li><strong>Less Aggressive Treatment:</strong> Early-stage breast cancer usually requires less aggressive treatments, such as surgery and chemotherapy, compared to advanced-stage cancer.</li>
+                <li><strong>Preservation of Breast Tissue:</strong> Early detection may allow for more options in preserving breast tissue, such as lumpectomy instead of mastectomy.</li>
+                <li><strong>Better Quality of Life:</strong> Detecting breast cancer early can help minimize the physical, emotional, and financial burdens associated with advanced-stage cancer treatment.</li>
+                <li><strong>Increased Survival Rates:</strong> Studies have shown that individuals whose breast cancer is detected early have a higher likelihood of surviving the disease compared to those diagnosed at a later stage.</li>
+            </ul>
+            <p>Therefore, promoting regular screenings and educating individuals about the importance of self-examinations are crucial steps in the fight against breast cancer.</p>
+        </div>
+    </div>
+    <div class="image-container2">
+        <img src="../static/doctor.png" alt="Doctor Image">
+        <!-- Patient Form -->
+        <div class="patient-form">
+            <h3>Patient Information Form</h3>
+            <form id="patientForm" onsubmit="submitForm(event)">
+                <!-- Your form fields go here -->
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br><br>
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required><br><br>
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select><br><br>
+                <label for="comments">Additional Comments:</label><br>
+                <textarea id="comments" name="comments" rows="4" cols="50"></textarea><br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <!-- End of Patient Form -->
+    </div>
+
+</div>
+
+<footer id="footer" class="region region-footer" role="contentinfo">
+    <!-- Footer Content -->
+</footer>
+
+<script src="script.js"></script>
+
+<script>
+    function submitForm(event) {
+        event.preventDefault(); // Prevent form submission
+        // Show confirmation message
+        alert('Your details have been submitted.');
+        // Reload the form
+        document.getElementById('patientForm').reset();
+    }
+</script>
+
+</body>
+</html>

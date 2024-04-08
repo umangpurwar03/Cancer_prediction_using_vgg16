@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classification Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Classification Result</h1>
+        <p>Predicted Class: {{ predicted_label }}</p>
+        <p>Confidence: {{ confidence }}%</p>
+        {% if image %}
+        <img src="data:image/jpeg;base64,{{ image }}" alt="Detected Malignant Tumor">
+        {% else %}
+        <p>No malignant tumor detected.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Classification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/about">About Breast Cancer</a>
+        <a class="active" href="/screening">Screening & Detection</a>
+        <!-- <a href="#risk">Risk Factors</a>
+        <a href="#prevention">Prevention Tips</a> -->
+    </nav>
+    <div id="home" class="content">
+        <div>
+            <h1>Upload an Image</h1>
+            <form action="/screening" method="post" id="uploadForm" enctype="multipart/form-data" class="upload-form" class="upload-button">
+                <input type="file" name="file" id="fileInput" class="file-input">
+                <button type="submit" class="upload-button">Upload</button>
+            </form>
+            <div class="image-container2">
+                <img src="../static/machine.png" alt="Breast Cancer Awareness">
+            </div>
+            <!-- <img src="../static/machine.png" alt="Breast Cancer Awareness"> -->
+        </div>
+        <div id="loading" class="loading hidden">
+            <img src="../static/Walk.gif" alt="Loading...">
+        </div> <!-- Add loading element -->
+        <div id="result" class="image-container4"></div> 
+        <div class="image-container2">
+            <img src="../static/doctor.png" alt="Doctor Image">
+        </div>
+        
+    </div>
+
+    <footer id="footer" class="region region-footer" role="contentinfo">
+        <!-- Footer content -->
+    </footer>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const formData = new FormData();
+            const fileInput = document.getElementById('fileInput');
+            formData.append('file', fileInput.files[0]);
+            
+            const resultDiv = document.getElementById('result');
+            const loadingDiv = document.getElementById('loading'); // Get loading element
+
+            resultDiv.innerHTML = ''; // Clear previous output immediately when submitting
+            loadingDiv.classList.remove('hidden'); // Show loading element
+            
+            try {
+                const response = await fetch('/screening', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await response.json();
+                resultDiv.innerHTML = `<h2>Prediction: ${data.predicted_label}</h2>
+                                       <p>Confidence: ${data.confidence.toFixed(2)}%</p>`;
+                if (data.image) {
+                    const img = new Image();
+                    img.src = `data:image/jpeg;base64, ${data.image}`;
+                    resultDiv.appendChild(img);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                resultDiv.innerHTML = '<p>Error processing request.</p>';
+            } finally {
+                loadingDiv.classList.add('hidden'); // Hide loading element once request is processed
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+/* Basic CSS for navigation bar */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+nav {
+    background-color: #333;
+    overflow: hidden;
+}
+.cta-btn {
+    display: inline-block;
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+nav a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+nav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+.active {
+    background-color: #4CAF50;
+}
+/* Styles for content sections */
+.content {
+    padding: 20px;
+    background-color: #fff;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content:center;
+}
+/* Styles for form elements */
+form {
+    max-width: 400px;
+    margin-right: auto;
+}
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+/* Styles for images */
+.image-container {
+    text-align: center;
+    margin-top: 20px;
+    margin-left: auto;
+}
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* Styles for images */
+.image-container2 {
+    text-align: center;
+    margin-top: 20px;
+    margin-left: auto;
+}
+.image-container2 img {
+    max-width: 200%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Styles for images */
+.image-container3 {
+    background-color: #e7e8e7;
+    display: flex;
+    align-items: center;
+    padding: 20px; /* Adjust padding as needed */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px 0;
+}
+
+.image-container3 img {
+    max-width: 100%;
+    /* flex: 0 0 auto; Prevent image from growing */
+    /* margin-right: 10%; Adjust margin as needed */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.description {
+    flex: 2; /* Take remaining space */
+}
+
+.description h3 {
+    margin-top: 0; /* Remove default margin */
+    margin-left: 10px;
+}
+
+.description p {
+    margin-bottom: 0; /* Remove default margin */
+    margin-left: 10px;
+}
+
+/* Styles for footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.footer-section:last-child {
+    margin-right: 0;
+}
+
+.footer-section .block {
+    margin-bottom: 20px;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu__item {
+    margin-bottom: 5px;
+}
+
+.menu__link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.menu__link:hover {
+    text-decoration: underline;
+}
+
+.asco-logo,
+.foundation-logo {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.copyright p {
+    margin: 0;
+}
+/* Styles for long paragraphs */
+.long-paragraphs {
+    max-width: 900px; /* Adjust the maximum width as needed */
+    margin-bottom: 20px; /* Add margin to separate from image */
+}
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #000000;
+}
+
+input[type="file"] {
+    display: block;
+    margin: 0 auto 20px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #050505;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #000000;
+}
+
+img {
+    max-width: 100%;
+    margin-top: 20px;
+}
+

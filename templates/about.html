@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Breast Cancer Classification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a class="active" href="/about">About Breast Cancer</a>
+        <a href="/screening">Screening & Detection</a>
+    </nav>
+    <div id="about" class="content">
+
+        <div>
+        
+        <h1>About Breast Cancer Classification</h1>
+        <p>Breast cancer is a complex disease with various subtypes, each requiring tailored treatment approaches. Understanding the different types of breast cancers is crucial for accurate diagnosis and effective management.</p>
+
+        <h2>Benign and Malignant Tumors</h2>
+
+        <p>When it comes to breast tumors, they fall into two primary categories: benign and malignant.</p>
+
+        <div class="image-container3">
+
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div style="flex-basis: 50%; margin-right: 20px; margin-bottom: 10px;">
+                <div class="image-container">
+                    <img src="../static/benign (18) 1.png" alt="Benign Tumor" style="width: 60%; height: auto;" id="benignImage">
+                </div>
+                <p><strong>Benign Tumors:</strong> These growths are non-cancerous and tend to be localized. They don't invade neighboring tissues or spread to distant sites within the body. Benign tumors in the breast are often harmless and may not necessitate immediate medical intervention. While they can cause discomfort or changes in breast tissue, they are generally not life-threatening.</p>
+            </div>
+            <div style="flex-basis: 50%;margin-bottom: 10px;">
+                <div class="image-container">
+                    <img src="../static/malignant (12) 1.png" alt="Malignant Tumor" style="width: 60%; height: auto;" id="malignantImage">
+                </div>
+                <p><strong>Malignant Tumors:</strong> In stark contrast, malignant tumors are cancerous. They possess the ability to infiltrate nearby tissues and, if left unchecked, can metastasize to other areas of the body. This metastatic spread is what makes malignant breast tumors particularly dangerous. They require urgent medical attention and a comprehensive treatment plan to prevent further advancement and to increase the chances of a positive prognosis.</p>
+            </div>
+            </div>
+        </div>
+        <h2>Types of Breast Cancer</h2>
+        
+        <div class="breast-cancer-type">
+            <div class="image-container3">
+                <img src="../static/cancer1.png" alt="Ductal Carcinoma">
+                <div class="description">
+                    <h3>Ductal Carcinoma</h3>
+                    <p>Ductal carcinoma is the most common type of breast cancer, originating in the milk ducts. It can be invasive or non-invasive (ductal carcinoma in situ).</p>
+                </div>
+            </div>    
+        </div>
+        
+        <div class="breast-cancer-type">
+            <div class="image-container3">
+                <div class="description">
+                    <h3>Lobular Carcinoma</h3>
+                    <p>Lobular carcinoma starts in the lobules of the breast and may spread to surrounding tissues. It accounts for a smaller percentage of breast cancer cases.</p>
+                </div>
+                <img src="../static/cancer2.png" alt="Lobular Carcinoma">
+            </div>
+        </div>
+        
+        <div class="breast-cancer-type">
+            <div class="image-container3">
+                <img src="../static/cancer3.png" alt="Triple Negative Breast Cancer">
+                <div class="description">
+                    <h3>Triple Negative Breast Cancer</h3>
+                    <p>Triple-negative breast cancer lacks estrogen receptors, progesterone receptors, and HER2 protein. It tends to be more aggressive and has fewer targeted treatment options.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add more types of breast cancer as needed -->
+
+        <h2>Role of Our Classification Model</h2>
+        <p>Our advanced AI-driven classification model plays a vital role in the early detection diagnosis  of breast cancer. By analyzing ultrasound scans, the model can identify subtle abnormalities indicative of cancerous growths.</p>
+        <p>Through deep learning algorithms trained on extensive datasets, our model can distinguish between different types of Tumors with high accuracy. This enables healthcare professionals to make informed decisions regarding treatment strategies and patient care.</p>
+        <p>Furthermore, our model enhances the efficiency of screening programs by reducing the time required for image interpretation and minimizing the risk of false negatives or false positives. By aiding in the early detection of breast cancer, our classification model contributes to improved patient outcomes and survival rates.</p>
+    </div>
+</div>
+    
+    <footer id="footer" class="region region-footer" role="contentinfo">
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        // Slideshow for benign tumors
+        let benignIndex = 0;
+        const benignImages = [
+            "../static/benign (18) 1.png",
+            "../static/benign (10).png",
+            "../static/benign (9).png"
+        ];
+        const benignImageElement = document.getElementById("benignImage");
+        setInterval(() => {
+            benignIndex = (benignIndex + 1) % benignImages.length;
+            benignImageElement.src = benignImages[benignIndex];
+        }, 3000); // Change the duration as needed
+
+        // Slideshow for malignant tumors
+        let malignantIndex = 0;
+        const malignantImages = [
+        "../static/malignant (12) 1.png",
+        "../static/malignant (15).png",
+        "../static/malignant (17).png"
+        ];
+        const malignantImageElement = document.getElementById("malignantImage");
+        setInterval(() => {
+            malignantIndex = (malignantIndex + 1) % malignantImages.length;
+            malignantImageElement.src = malignantImages[malignantIndex];
+        }, 3000); // Change the duration as needed
+    </script>
+</body>
+</html>
